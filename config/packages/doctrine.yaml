@@ -7,8 +7,11 @@ parameters:
 
 doctrine:
     dbal:
-        url: '%env(resolve:DATABASE_URL)%'
+        driver: 'pdo_mysql'
+        server_version: '8.0'
+        charset: utf8mb4
 
+        url: '%env(resolve:DATABASE_URL)%'
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         entity_managers:
@@ -17,7 +20,7 @@ doctrine:
                 mappings:
                     App:
                         is_bundle: false
-                        type: annotation
-                        dir: '%kernel.project_dir%/src/Entity'
+                        type: 'xml'
+                        dir: '%kernel.project_dir%/src/Resources/config/doctrine'
                         prefix: 'App\Entity'
-                        alias: App
+                        alias: 'App'

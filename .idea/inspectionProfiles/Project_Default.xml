@@ -3,6 +3,9 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PhpStanGlobal" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <scope name="Project Files" level="WEAK WARNING" enabled="true">
+        <option name="config" value="$PROJECT_DIR$/phpstan.neon" />
+      </scope>
       <option name="config" value="$PROJECT_DIR$/phpstan.neon" />
     </inspection_tool>
   </profile>

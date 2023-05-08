@@ -15,4 +15,5 @@ return static function (ECSConfig $config): void {
 
     $config->ruleWithConfiguration(BinaryOperatorSpacesFixer::class, []);
     $config->ruleWithConfiguration(PhpdocSeparationFixer::class, ['groups' => [['ORM\\*']]]);
+
 };

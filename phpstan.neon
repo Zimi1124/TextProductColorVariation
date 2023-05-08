@@ -1,3 +1,7 @@
 parameters:
+    level: 4
+    paths:
+        - src/
     ignoreErrors:
         - '/Generator expects value type Symfony\\Component\\HttpKernel\\Bundle\\BundleInterface\, object given\./'
+
