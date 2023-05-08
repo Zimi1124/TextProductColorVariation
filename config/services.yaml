@@ -2,6 +2,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 imports:
     - { resource: "../tests/Behat/Resources/services.xml" }
+    - { resource: "../src/Resources/config/services.xml"}
 
 parameters:
     locale: en_US
