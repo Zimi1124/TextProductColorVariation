@@ -9,4 +9,6 @@ interface CreateProductPageInterface extends SymfonyPageInterface
     public function getRouteName(): string;
 
     public function setColor(string $color):void;
+
+
 }
