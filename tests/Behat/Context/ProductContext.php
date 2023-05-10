@@ -5,8 +5,6 @@ namespace App\Tests\Behat\Context;
 use Behat\MinkExtension\Context\MinkContext;
 use App\Tests\Behat\Pages\CreateProductPageInterface;
 use Behat\Behat\Context\Context;
-use Sylius\Component\Product\Repository\ProductRepositoryInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 
 
