@@ -15,7 +15,11 @@ class Product extends BaseProduct implements ProductInterface
 
     public function getColor(): ?string
     {
-        return $this->color;
+        $color = $this->color;
+        if ($color !== null) {
+            $color = ucfirst(strtolower($color));
+        }
+        return $color;
     }
 
     public function setColor(?string $color): void

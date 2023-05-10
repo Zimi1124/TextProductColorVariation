@@ -14,18 +14,23 @@ services:
         autowire: false
 
         # Automatically registers your services as commands, event subscribers, etc.
-        autoconfigure: false
+        autoconfigure: true
 
         # Allows optimizing the container by removing unused services; this also means
         # fetching services directly from the container via $container->get() won't work
         public: false
-
+    
     _instanceof:
         Sylius\Bundle\ResourceBundle\Controller\ResourceController:
             autowire: false
         Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType:
             autowire: false
-
+    # Allows validation of color field
+    App\Validator\Constraints\ColorValidator:
+        arguments:
+            $availableColors: '%kernel.project_dir%/available_colors.php'
+        tags:
+            - { name: validator.constraint_validator, alias: app_color_validator }
     # Makes classes in src/ available to be used as services;
     # this creates a service per class whose id is the fully-qualified class name
     App\:
@@ -37,3 +42,5 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    
