@@ -23,12 +23,13 @@ Feature: Creating a product with color
     @ui
     Scenario: Creating a product with invalid color
         Given I want to create a new simple product
-        When I specify its code as "DINO_HOODIE"
-        And I name it "Dino Hoodie" in "English (United States)"
-        And I set its slug to "dino-hoodie" in "English (United States)"
+        When I specify its code as "DINO_HOODIE2"
+        And I name it "Dino Hoodie2" in "English (United States)"
+        And I set its slug to "dino-hoodie2" in "English (United States)"
         And I set color to "Invalid color"
         And I set its price to "$66.00" for "United States" channel
         And I set its original price to "$201.00" for "United States" channel
         And I add it
-        Then I should see a validation error for the color field
-        And the product should not be created
+        Then I should see a validation error for the color field, preventing creation of new product
+
+

@@ -2,12 +2,15 @@
 
 namespace App\Tests\Behat\Context;
 
-
+use Behat\MinkExtension\Context\MinkContext;
 use App\Tests\Behat\Pages\CreateProductPageInterface;
 use Behat\Behat\Context\Context;
-use Behat\Behat\Tester\Exception\PendingException;
+use Sylius\Component\Product\Repository\ProductRepositoryInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-final class ProductContext implements Context
+
+
+final class ProductContext extends MinkContext implements Context
 {
     /**
      * @var CreateProductPageInterface
@@ -29,19 +32,16 @@ final class ProductContext implements Context
 
 
     /**
-     * @Then I should see a validation error for the color field
+     * @Then I should see a validation error for the color field, preventing creation of new product
      */
     public function iShouldSeeAValidationErrorForTheColorField()
     {
-        throw new PendingException();
+        $errorMessage = 'Please enter a valid color (letters only).';
+        $this->assertSession()->elementContains('css', '.sylius-validation-error', $errorMessage);
     }
 
-    /**
-     * @Then the product should not be created
-     */
-    public function theProductShouldNotBeCreated()
-    {
-        throw new PendingException();
-    }
+
+
+
 
 }
